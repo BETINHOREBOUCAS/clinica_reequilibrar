@@ -20,19 +20,26 @@
     width: 50px;
 }
 
+.professional {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.title-scheduling {
+    padding-left: 5px;
+    color: black;
+}
+
 @media only screen and (max-width: 1024px) {
     .vacancy {
         display: none;
     }
-
     .scheduling {
         width: 100%;
     }
-
     .calendar-info {
         display: block;
     }
-
     .available {
         width: 100%;
         padding: 5px;

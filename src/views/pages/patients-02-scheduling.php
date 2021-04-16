@@ -29,13 +29,13 @@
 
 
     <div class="margin-left-5">
-        <h2>Novo Agendamento</h2>
+        <h2 class="title-scheduling">Novo Agendamento</h2>
     </div>
     <div class="margin-left-5">
         <div>
             <br>
             <div class="scheduling">
-                <div>Profissional: Bruno Celedonio</div>
+                <div class="professional">Profissional: Bruno Celedonio</div>
                 <div class="table-style">
                     <table>
                         <thead>
