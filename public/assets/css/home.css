@@ -1,0 +1,259 @@
+.information {
+    position: relative;
+    top: 70px;
+    max-width: 100%;
+    margin-left: 270px;
+    display: flex;
+}
+
+.info-alert-basic {
+    margin-right: 20px;
+}
+
+.item {
+    height: 100px;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    box-shadow: 0px 3px 5px 0px #757575;
+    margin-bottom: 20px;
+    width: 300px;
+}
+
+.item:hover {
+    box-shadow: 0px 3px 15px 0px #757575;
+}
+
+.alert-warnings {
+    display: flex;
+    height: 100%;
+}
+
+.alert-warnings .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.alert-warnings .icons .icon {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+}
+
+.alert-warnings .text {
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.alert-warnings .text .icon {
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.alert-agends {
+    display: flex;
+    height: 100%;
+}
+
+.alert-agends .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.alert-agends .icons .icon {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+}
+
+.alert-agends .text {
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.alert-agends .text .icon {
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.not {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    border-radius: 50%;
+    left: 70%;
+    top: -17px;
+    color: white;
+    background: linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+    background-color: #f24537;
+    border: 1px solid #d02718;
+    font-size: 15px;
+    text-shadow: 0px 1px 0px #810e05;
+}
+
+.not2 {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    border-radius: 50%;
+    left: 70%;
+    top: -17px;
+    color: white;
+    font-size: 17px;
+    background: linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+    background-color: #f24537;
+    border: 1px solid #d02718;
+    text-shadow: 0px 1px 0px #810e05;
+    background: linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+    background-color: #f24537;
+    border: 1px solid #d02718;
+    font-size: 15px;
+    text-shadow: 0px 1px 0px #810e05;
+}
+
+.icon-style {
+    background: linear-gradient(#7892c2, #476e9e 100%);
+    background-color: #7892c2;
+    border-radius: 10px;
+    border: 1px solid #4e6096;
+    color: #ffffff;
+    font-size: 19px;
+    text-shadow: 0px 1px 0px #283966;
+    left: 6%;
+    top: 135px;
+}
+
+.icon-style2 {
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    background-color: #ffec64;
+    border-radius: 6px;
+    border: 1px solid #ffaa22;
+    color: black;
+    font-size: 19px;
+    text-shadow: 0px 1px 0px #ffee66;
+}
+
+.info-accounts {
+    width: 100%;
+    margin-right: 20px;
+    display: flex;
+}
+
+.info-accounts .item {
+    width: 100%;
+    height: 220px;
+}
+
+.attendance table {
+    font-size: 12px;
+    width: 100%;
+    text-align: start;
+}
+
+.attendance table td {
+    padding-left: 5%;
+}
+
+.title {
+    padding: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+}
+
+.report {
+    width: 50%;
+    height: 320px;
+}
+
+.calendar-month {
+    line-height: 100px;
+    height: 100px;
+    background: linear-gradient(#90e8f0 5%, #7ae6d0 100%);
+    text-align: center;
+    color: black;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.month input {
+    width: 70%;
+    border-radius: 5px;
+    border: 1px solid #88E7E4;
+    height: 30px;
+    color: black;
+    font-weight: bold;
+    padding-left: 10px;
+    text-align: center;
+    font-size: 25px;
+    background-color: #88E7E4;
+    outline: none;
+}
+
+.calendar-day {
+    margin-bottom: 205px;
+    padding: 10px;
+}
+
+.calendar-day table {
+    width: 100%;
+    height: 180px;
+    text-align: center;
+}
+
+.graphic {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .information {
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .info-accounts {
+        width: 100%;
+    }
+    .info-alert-basic {
+        margin: 0;
+    }
+    .report {
+        width: 100%;
+    }
+    .graphic {
+        display: none;
+    }
+    .info-alert-basic {
+        display: flex;
+    }
+    .info-alert-basic .item {
+        width: 600px;
+        font-size: 13px;
+    }
+    .margin-right-5 {
+        margin-right: 5px;
+    }
+    .margin-left-5 {
+        margin-left: 5px;
+    }
+    .attendance table {
+        font-size: 11px;
+    }
+    .month input {
+        font-size: 15px;
+    }
+}

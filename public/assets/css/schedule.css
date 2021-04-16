@@ -1,0 +1,40 @@
+.calendar-info {
+    display: flex;
+}
+
+.available {
+    width: 50%;
+    padding: 5px;
+}
+
+.config-scheduling {
+    width: 100%;
+}
+
+.scheduling {
+    width: 50%;
+    padding: 5px;
+}
+
+.vacancy input[type='number'] {
+    width: 50px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .vacancy {
+        display: none;
+    }
+
+    .scheduling {
+        width: 100%;
+    }
+
+    .calendar-info {
+        display: block;
+    }
+
+    .available {
+        width: 100%;
+        padding: 5px;
+    }
+}

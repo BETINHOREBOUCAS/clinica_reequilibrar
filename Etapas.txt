@@ -1,0 +1,30 @@
+* Página Home
+
+Avisos -> Feriados, Reuniões e anoversarios da semana.
+
+Agenda -> Pessosas que estao marcadas
+
+Calendario -> mostrar Feriados
+
+____________________________________//____________________________________________________
+
+
+pacientes/procedimentos/anamnese -> Adicionar informações da ficha
+
+pacientes/arquivo/pronuario -> imprimir igual ficha de avaliação
+
+financeiro/fluxo-de-caixa -> add conta + saldos
+
+financeiro/contas-a-pagar -> add campo parcelar
+
+financeiro/conta-a-receer -> add campo tipo de operação
+
+configuraçao/usuario/novo -> add permissao adm, profissional e atendente
+
+____________________________________//____________________________________________________
+
+Obs: Tem acesso a informações do sistema
+
+profissional -> Paciente, consulta e agenda
+
+atendente -> pacientes agenda

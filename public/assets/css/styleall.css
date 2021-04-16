@@ -1,0 +1,818 @@
+* {
+    font-family: Loto;
+    box-sizing: border-box;
+}
+
+
+/* ## PADRÕES DE CLASSES ## */
+
+.margin-left-5 {
+    margin-left: 5px;
+}
+
+.margin-right-5 {
+    margin-right: 5px;
+}
+
+.margin-right-10 {
+    margin-right: 10px;
+}
+
+.margin-botton-10 {
+    margin-bottom: 10px;
+}
+
+
+/* ## FIM ## */
+
+
+/* ## ELEMENTOS SEM CLASSES ## */
+
+body {
+    margin: 0;
+    background-color: #F0F0F0;
+    color: #757575;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #757575;
+    outline: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table tr td {
+    padding: 7px;
+}
+
+hr {
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+textarea {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #a7a7a7;
+    border-radius: 5px;
+}
+
+
+/* ## FIM ## */
+
+
+/* ## MENU ## */
+
+.menu {
+    position: fixed;
+    height: 55px;
+    width: 100%;
+    background-color: #4EC3CD;
+    z-index: 1;
+    box-shadow: 0px 3px 5px 0px #757575;
+}
+
+.menu-icon {
+    display: none;
+    position: absolute;
+    margin-left: 20px;
+    color: white;
+    top: 12px;
+    font-size: 25px;
+}
+
+.user {
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-right: 100px;
+    text-shadow: -1px 1px 2px black;
+    cursor: context-menu;
+    font-size: 18px;
+}
+
+.user a {
+    color: white;
+}
+
+.user li:hover .option {
+    display: block;
+}
+
+.menu-icon {
+    display: none;
+    position: absolute;
+    margin-left: 20px;
+    color: white;
+    top: 12px;
+    font-size: 25px;
+}
+
+.option {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 143px;
+    height: 20px;
+    padding-right: 10px;
+    display: none;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.option a {
+    float: right;
+}
+
+
+/* ## FIM ## */
+
+
+/* ## SIDEBAR ## */
+
+.active {
+    color: #4EC3CD;
+    border-left: 4px solid;
+    background-color: #F0F0F0;
+    padding-left: 36px !important;
+}
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    box-shadow: 0px 0px 8px 0px #757575;
+    background-color: white;
+    z-index: 2;
+}
+
+.logo {
+    height: 55px;
+    width: 100%;
+    border-bottom: solid 1px #F0F0F0;
+    text-align: center;
+    line-height: 55px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.list {
+    font-size: 16px;
+}
+
+.list ul li {
+    padding: 10px;
+    padding-left: 40px;
+    overflow: hidden;
+}
+
+.list ul li span {
+    margin-left: 10px;
+}
+
+.list ul li:hover {
+    background-color: #F0F0F0;
+}
+
+.sub-list ul li {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.container-item {
+    overflow: hidden;
+}
+
+.slide-none {
+    transform: translateY(-110px);
+    height: 0px;
+}
+
+.slide-static {
+    transform: translateY(0px);
+    animation-fill-mode: forwards;
+    height: 100%;
+}
+
+.slide-down-financeiro {
+    transform: translateY(-110px);
+    animation-name: slide-down-financeiro;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-down-financeiro {
+    0% {
+        height: 0px;
+    }
+    100% {
+        transform: translateY(0px);
+        height: 77px;
+    }
+}
+
+.slide-down-settings {
+    transform: translateY(-110px);
+    animation-name: slide-down-settings;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-down-settings {
+    0% {
+        height: 0px;
+    }
+    100% {
+        transform: translateY(0px);
+        height: 77px;
+    }
+}
+
+.slide-down-relatorio {
+    transform: translateY(-110px);
+    animation-name: slide-down-relatorio;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-down-relatorio {
+    0% {
+        height: 0px;
+    }
+    100% {
+        transform: translateY(0px);
+        height: 130px;
+    }
+}
+
+.slide-up {
+    transform: translateY(0px);
+    animation-name: slide-up;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-up {
+    0% {
+        height: 77px;
+    }
+    100% {
+        transform: translateY(-110px);
+        height: 0px;
+    }
+}
+
+/* ## MODAL ## */
+
+.principal {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+    display: none;
+}
+
+.modal-bg {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    position: absolute;
+}
+
+.modal-container {
+    width: 600px;
+    height: 400px;
+    background-color: white;
+    z-index: 100;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: 10%;
+    bottom: 50%;
+}
+
+.modal-container-modality {
+    width: 280px !important;
+    height: 200px !important
+}
+
+.modal-title {
+    padding: 20px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.form-modal {
+    text-align: end;
+    padding: 10px;
+    padding-right: 25px;
+}
+
+.form-modal input, .form-modal select {
+    width: 85% !important;
+    border-radius: 5px;
+    border: 1px solid #cecdcd;
+    height: 30px;
+    color: #757575;
+    padding-left: 10px;
+}
+
+.modal-footer {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+    display: flex;
+}
+
+.modal-footer button {
+    width: 50%;
+    margin: 5px;
+    cursor: pointer;
+    height: 25px;
+}
+
+.cancelar {
+    background-color: white;
+    color: blue;
+    font-weight: bold;
+    border: 1px solid #cecdcd;
+}
+
+#aceitar {
+    background-color: #3740c5;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #cecdcd;
+}
+
+select[name=sexo], select[name=permissao] {
+    width: 100% !important;
+}
+
+/* ## FIM ## */
+
+
+/* ## FIM ## */
+
+
+/* ## CORPO ## */
+
+.container-area {
+    position: relative;
+    top: 70px;
+    margin-left: 270px;
+    margin-right: 20px;
+    margin-bottom: 85px;
+    background-color: white;
+    max-width: 100%;
+    min-height: 200px;
+    box-shadow: 0px 1px 5px 0px #757575;
+}
+
+.details {
+    margin-right: 20px;
+    background-color: white;
+    display: flex;
+}
+
+.details form {
+    width: 80%;
+}
+
+.form-general {
+    padding: 15px;
+    width: 100%;
+    display: flex;
+}
+
+.form-responsive {
+    display: flex;
+    width: 90%;
+}
+
+.item-responsive {
+    width: 100%;
+}
+
+.form-general input,
+.form-general select {
+    border-radius: 5px;
+    height: 30px;
+    width: 90%;
+    border: 1px solid #cecdcd;
+    outline: none;
+    padding-left: 10px;
+    color: #757575;
+}
+
+.form-general button {
+    background: linear-gradient(to bottom, #41c961 5%, #28A745 100%);
+    border: 1px solid white;
+    font-size: 15px;
+    text-shadow: 0px 1px 0px #37f256;
+    height: 30px;
+    width: 90px;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-general button:hover {
+    background: linear-gradient(to bottom, #28A745 5%, #41c961 100%);
+}
+
+.button-option {
+    padding-top: 15px;
+}
+
+.button-new-function {
+    background: linear-gradient(to bottom, #5963f3 5%, #026CB5 100%);
+    border: 1px solid white;
+    font-size: 15px;
+    height: 30px;
+    line-height: 28px;
+    text-align: center;
+    width: 150px;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-new-function:hover {
+    background: linear-gradient(to bottom, #026CB5 5%, #5963f3 100%);
+}
+
+.button-new-function i {
+    margin-right: 5px;
+}
+
+.table-style {
+    width: 100%;
+    font-size: 12px;
+}
+
+.table-style table {
+    width: 100%;
+    margin-top: 30px;
+    cursor: context-menu;
+}
+
+.table-style table tbody tr:hover {
+    background-color: rgb(217, 218, 216);
+}
+
+.table-style table th {
+    border-bottom: 1px solid;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.table-style table td {
+    padding: 10px;
+}
+
+.table-style tbody tr:nth-child(odd) {
+    background-color: rgb(230, 230, 230);
+}
+
+.td-width {
+    width: 180px;
+}
+
+.action-icons {
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+}
+
+.icon-exhibition {
+    height: 80px;
+    min-width: 80px;
+    background: linear-gradient(#9FA6B2 5%, #878B95 100%);
+    margin: 15px;
+    color: white;
+    font-size: 40px;
+    line-height: 80px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.title-info {
+    width: 35%;
+    margin-right: 10px;
+}
+
+.list-service {
+    display: flex;
+    border-bottom: 1px solid;
+}
+
+.list-service a {
+    font-size: 15px;
+}
+
+.list-service div {
+    padding-right: 15px;
+    padding-left: 15px;
+    height: 30px;
+}
+
+.border-active {
+    border-bottom: 2px solid blue;
+}
+
+.form-register {
+    padding: 20px;
+}
+
+.on-input {
+    padding: 10px;
+}
+
+.on-input input[type='text'],
+.input-flex input[type='text'], input[type='email'], input[type='password'] {
+    width: 100%;
+    border-radius: 5px;
+    height: 30px;
+    border: 1px solid #cecdcd;
+    outline: none;
+    padding-left: 10px;
+}
+
+.input-flex {
+    display: flex;
+    padding: 10px;
+}
+
+.input-flex div {
+    width: 100%;
+}
+
+.padding-responsive select {
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+    border: 1px solid #cecdcd;
+    outline: none;
+    padding-left: 10px;
+    color: #757575;
+}
+
+.button-save {
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+}
+
+.input-date input {
+    border: 1px solid #a7a7a7;
+    border-radius: 5px;
+    text-align: center;
+    color: #757575;
+    width: 150px;
+    height: 25px;
+}
+
+.main {
+    background-color: #d4d3d3;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 4px;
+}
+
+.desc {
+    padding: 5px;
+}
+
+.span-concat {
+    margin-right: 16px;
+}
+
+/* ## Aviso de Transição ## */
+
+.div-warning {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+}
+
+.div-warning-content {
+    width: 100%;
+    display: flex;
+    height: 50px;
+    border: 2px solid;
+    border-radius: 5px;
+    
+}
+
+.div-warning-icon {
+    width: 70px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+}
+
+.div-warning-text {
+    text-align: justify;
+    width: calc(100% - 70px);
+    color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+}
+
+.page {
+    display: flex;
+    margin-left: 270px;
+    justify-content: center;
+    align-items: center;
+}
+
+.page .block {
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid steelblue;
+    text-align: center;
+    padding: 5px;
+    width: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.page .block:hover {
+    background-color: steelblue;
+    color: white;
+}
+
+/* ## FIM ## */
+
+
+/* ## RESPONSIVIDADE ## */
+
+@media only screen and (max-width: 1024px) {
+    .user {
+        margin-right: 20px;
+    }
+    .sidebar {
+        display: none;
+    }
+    .menu {
+        z-index: 3;
+    }
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+    #sidebar {
+        opacity: 0;
+        transition: opacity 1.5s;
+    }
+    #sidebar.mostrar {
+        opacity: 1;
+    }
+    .item-responsive i {
+        display: none;
+    }
+    .item-responsive select,
+    input :not(input[type=radio]) {
+        width: 100%;
+    }
+    .container-area {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .form-responsive {
+        display: block;
+        width: 100%;
+    }
+    .form-responsive div {
+        padding: 10px;
+    }
+    .details {
+        display: block;
+        margin: 0;
+    }
+    .details form {
+        width: 100%;
+    }
+    .details .button-option {
+        margin-left: 10px;
+    }
+    .form-general {
+        width: 100%;
+    }
+    .form-general input,
+    select {
+        width: 100%;
+    }
+    .button {
+        text-align: center;
+    }
+    .action-icons {
+        display: block;
+        font-size: 15px;
+    }
+    .action-icons div {
+        margin-bottom: 5px;
+    }
+    .td-width {
+        width: 50px;
+    }
+    .title-info {
+        width: 100%;
+        text-align: center;
+    }
+    .list-service {
+        display: block;
+        border: none;
+    }
+    .list-service div {
+        line-height: 30px;
+    }
+    .form-register {
+        padding: 0;
+    }
+    .input-flex {
+        display: block;
+    }
+    .padding-responsive {
+        padding-top: 20px;
+    }
+    .icon-exhibition {
+        margin: 0;
+        border-radius: 0px;
+    }
+    .border-active {
+        border: none;
+        background-color: rgb(206, 206, 206);
+    }
+    .span-concat {
+        display: block;
+        text-align: center;
+    }
+    
+    .modal-container {
+        width: 80%;
+        height: 70%;
+    }
+
+    .form-modal input, .form-modal select {
+        width: 140px !important;
+    }
+
+    #modalidade {
+        width: 100% !important;
+    }
+
+    .div-warning {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .div-warning-text {
+        padding-left: 5px;
+        padding-top: 5px;
+        padding-right: 5px;
+        width: calc(100% - 40px);
+    }
+
+    .div-warning-icon {
+        width: 40px;
+    }
+}
+
+
+/* ## FIM ## */
