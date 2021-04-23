@@ -5,13 +5,18 @@ use PDO;
 
 class Patients extends Model {
 
-    public $pdo;
+    public static function getPatientsAll()  {
+        $pdo = Conection::sqlSelect();
+        $sql = "SELECT * FROM profissional";
+        $sql = $pdo->query($sql);
 
-    function __construct() {
-        $this->pdo = Conection::sqlSelect();
+        if ($sql->rowCount() > 0) {
+            return $sql->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
 
-    public function getPatients($table, $search, $page) {
+    public static function getPatients($table, $search, $page) {
+        $pdo = Conection::sqlSelect();
 
         $name = $search['name'];
         $situation = $search['situation'];
@@ -20,7 +25,7 @@ class Patients extends Model {
 
         $query = "SELECT * FROM $table WHERE nome LIKE :nome OR cpf LIKE :cpf AND situacao = :situacao";
 
-        $sql = $this->pdo->prepare($query);
+        $sql = $pdo->prepare($query);
         $sql->bindValue(':nome', "%$name%");
         $sql->bindValue(':situacao', $situation);
         $sql->bindValue(':cpf', "%$name%");
@@ -40,7 +45,7 @@ class Patients extends Model {
         
         $query = "SELECT * FROM $table WHERE nome LIKE :nome OR cpf LIKE :cpf AND situacao = :situacao ORDER BY nome asc LIMIT $limit,10";
 
-        $sql = $this->pdo->prepare($query);
+        $sql = $pdo->prepare($query);
         $sql->bindValue(':nome', "%$name%");
         $sql->bindValue(':situacao', $situation);
         $sql->bindValue(':cpf', "%$name%");
