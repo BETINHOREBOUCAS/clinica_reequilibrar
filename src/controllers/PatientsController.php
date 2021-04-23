@@ -2,8 +2,15 @@
 namespace src\controllers;
 
 use \core\Controller;
+use DateTime;
+use DateTimeZone;
+use src\handlers\PrintHandler;
+use src\handlers\ScheduleHandler;
 use src\models\GeneralSQL;
+use src\models\Modality;
 use src\models\Patients;
+use src\models\Professional;
+use src\models\Schedule;
 
 class PatientsController extends Controller {
 
@@ -82,7 +89,46 @@ class PatientsController extends Controller {
     }
 
     public function agendamento() {
-        $this->render('patients-02-scheduling');
+        $date = new DateTime();
+        $date->setTimezone(new DateTimeZone('America/Sao_Paulo'));
+        $dateStart = $date->format("Y-m-01");
+        $dateEnd = $date->format("Y-m-31");
+        
+        $data = [];
+
+        $data['modality'] = Modality::getModalidadeAll();
+        $data['professional'] = Professional::getProfessionalAll();
+
+        // Filtros de busca de agendamentos
+        if (count($_GET) > 1) {
+
+            $modality = filter_input(INPUT_GET, 'modality', FILTER_SANITIZE_STRING);
+            $month = filter_input(INPUT_GET, 'month', FILTER_SANITIZE_STRING);
+            $professional = filter_input(INPUT_GET, 'professional', FILTER_SANITIZE_STRING);
+            
+            if (!empty($_GET['month']) && isset($_GET['month'])) {
+                $query[] = "data BETWEEN '$month-01' AND '$month-31'";
+            } else {
+                $query[] = "data BETWEEN '$dateStart' AND '$dateEnd'";
+            }
+
+            if (!empty($_GET['modality']) && isset($_GET['modality'])) {
+                $query[] = "id_modalidade = $modality";
+            }
+
+            if (!empty($_GET['professional']) && isset($_GET['professional'])) {
+                $query[] = "id_profissional = $professional";
+            }
+
+        } else {
+            $query = [false];
+        }
+
+        //PrintHandler::print_r($data['professional']);
+
+        $data['schedule'] = ScheduleHandler::groupProfessional(Schedule::getShedule($query), $data['professional']);
+
+        //$this->render('patients-02-scheduling', $data);
     }
 
     public function consulta() {
