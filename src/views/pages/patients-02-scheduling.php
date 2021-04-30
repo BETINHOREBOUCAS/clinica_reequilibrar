@@ -2,7 +2,7 @@
 
 use src\handlers\PrintHandler;
 
-//PrintHandler::print_r($viewData);
+//PrintHandler::print_r($schedule, true);
 ?>
 <?php $render('header'); ?>
 <?php $render('sidebar'); ?>
@@ -10,7 +10,7 @@ use src\handlers\PrintHandler;
 <div class="container-area">
     <div class="details">
         <form method="get">
-            <div class="form-general">
+            <div class="form-general margin-left-10">
                 <div class="form-responsive">
                     <div class="item-responsive">
                         <input type="month" name="month">
@@ -19,9 +19,9 @@ use src\handlers\PrintHandler;
                         <select name="modality">
                             <option value="">Modalidade</option>
                             <?php if(isset($modality) && !empty($modality)) :?>
-                                <?php foreach ($modality as $value) :?>
-                                    <option value="<?=$value['id'];?>"><?=ucfirst($value['nome']);?></option>
-                                <?php endforeach ?>
+                            <?php foreach ($modality as $value) :?>
+                            <option value="<?=$value['id'];?>"><?=ucfirst($value['nome']);?></option>
+                            <?php endforeach ?>
                             <?php endif ?>
                         </select>
                     </div>
@@ -29,9 +29,9 @@ use src\handlers\PrintHandler;
                         <select name="professional">
                             <option value="">Profissional</option>
                             <?php if(isset($professional) && !empty($professional)) :?>
-                                <?php foreach ($professional as $value) :?>
-                                    <option value="<?=$value['id'];?>"><?=ucfirst($value['nome']);?></option>
-                                <?php endforeach ?>
+                            <?php foreach ($professional as $value) :?>
+                            <option value="<?=$value['id'];?>"><?=ucfirst($value['nome']);?></option>
+                            <?php endforeach ?>
                             <?php endif ?>
                         </select>
                     </div>
@@ -46,20 +46,21 @@ use src\handlers\PrintHandler;
     <?php if(isset($schedule) && !empty($schedule)) :?>
     <?php if(!isset($schedule['aviso']) && empty($schedule['aviso'])):?>
     <div class="margin-left-5">
-        <h2 class="title-scheduling">Novo Agendamento</h2>
+        <h2 class="title-scheduling" id="teste">Novo Agendamento</h2>
     </div>
     <div class="margin-left-5">
         <div>
-            <br>
             <div class="scheduling">
-                <div class="professional">Profissional: Bruno Celedonio</div>
-                <div class="table-style">
+                <?php foreach ($schedule as $key_professional => $schedule_value) :?>
+
+                <div class="professional">Profissional: <?=$key_professional;?></div>
+                <div class="table-style form-general">
                     <table>
                         <thead>
                             <tr>
                                 <th>Data</th>
                                 <th>Horário</th>
-                                <th>Modalidade</th>
+
                                 <th>Vagas Dispóniveis</th>
                                 <th></th>
                             </tr>
@@ -67,35 +68,52 @@ use src\handlers\PrintHandler;
                         <tbody>
                             <tr>
                                 <form method="get">
-                                <td>10/12/2021</td>
                                     <td>
-                                    <select name="hora" id="">
-                                        <option></option>
-                                        <option>2:30</option>
-                                        <option>2:00</option>
-                                    </select>
-                                </td>
-                                <td>Cardio</td>
-                                <td>5</td>
-                                <td><button class="cancelar">Agendar</button></td>
+                                        <select name="date" class="available-date">
+                                            <option value="null"></option>
+                                            <?php foreach ($schedule_value as $key => $value) :?>
+                                            <option
+                                                value='{
+                                                    "data":"<?=$value['data'];?>",
+                                                    "idProfissional":"<?=$value['id_profissional'];?>",
+                                                    "url":"<?=$base;?>"
+                                                    }'>
+                                                <?=$value['data'];?>
+                                            </option>
+                                            <?php endforeach ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="hora" id="available-time">
+
+                                            <option>Horario Disponivel</option>
+
+                                        </select>
+                                    </td>
+
+                                    <td>5</td>
+                                    <td><button class="cancelar">Agendar</button></td>
                                 </form>
                             </tr>
-                            
+
                         </tbody>
                     </table>
                 </div>
+                <br>
+                <hr>
+                <?php endforeach ?>
             </div>
+
         </div>
     </div>
     <?php else :?>
-        <?=$schedule['aviso'];?>
+    <?=$schedule['aviso'];?>
     <?php endif ?>
     <?php endif ?>
 
-    <br><br>
-    <hr> <br><br>
-    <h3 class="margin">Últimos Agendamentos</h3>
-    <div class="table-style">
+
+    <h2 class="title-scheduling">Últimos Agendamentos</h2>
+    <div class="table-style form-general">
         <table>
             <thead>
                 <tr>
@@ -126,3 +144,5 @@ use src\handlers\PrintHandler;
     </div>
 
 </div>
+
+<script src="<?=$base;?>/assets/js/ajax.js"></script>

@@ -112,9 +112,9 @@ class PatientsController extends Controller {
                 $query[] = "data BETWEEN '$dateStart' AND '$dateEnd'";
             }
 
-            if (!empty($_GET['modality']) && isset($_GET['modality'])) {
+            /*if (!empty($_GET['modality']) && isset($_GET['modality'])) {
                 $query[] = "id_modalidade = $modality";
-            }
+            }*/
 
             if (!empty($_GET['professional']) && isset($_GET['professional'])) {
                 $query[] = "id_profissional = $professional";
@@ -124,11 +124,15 @@ class PatientsController extends Controller {
             $query = [false];
         }
 
-        //PrintHandler::print_r($data['professional']);
+        $data['schedule'] = Schedule::getShedule($query);
 
-        $data['schedule'] = ScheduleHandler::groupProfessional(Schedule::getShedule($query), $data['professional']);
+        if (!array_key_exists('aviso', $data['schedule'])) {
+            $data['schedule'] = ScheduleHandler::groupProfessional($data['schedule'], $data['professional']);
+        }
 
-        //$this->render('patients-02-scheduling', $data);
+        //PrintHandler::print_r($data['schedule'], true);
+
+        $this->render('patients-02-scheduling', $data);
     }
 
     public function consulta() {

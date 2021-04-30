@@ -27,7 +27,7 @@ class Schedule extends Model
             return $sql;
             
         } else {
-            return array("aviso" => "Nenhuma informação encontrada!");
+            return [];
         }
     }
 }

@@ -38,3 +38,6 @@ $router->get('/configuracao/usuarios/novo', 'SettingsController@newUser');
 $router->post('/configuracao/usuarios/novo', 'SettingsController@newUserAction');
 $router->get('/configuracao/modalidades', 'SettingsController@modalidades');
 $router->get('/configuracao/modalidades/nova', 'SettingsController@newModalidades');
+
+// Consultas de API
+$router->get('/api/agendamentos/{idprofissional}/{data}', 'ApiController@getTime');
