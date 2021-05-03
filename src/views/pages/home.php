@@ -1,12 +1,8 @@
 <?php
-    if (empty($_GET['mes'])) {
-        $mesAnterior = $mes-1;
-        $mesPosterior = $mes+1;
-    } else {
-        $mesAnterior = $_GET['mes'] - 1;
-        $mesPosterior = $_GET['mes'] + 1;
-    }
-    
+
+use src\handlers\PrintHandler;
+
+//PrintHandler::print_r($feriados, true);
 ?>
 
 <?php $render('header'); ?>
@@ -32,7 +28,7 @@
                     <div class="icon icon-style"><i class="far fa-calendar"></i></div>
                 </div>
                 <div class="text">
-                    <div>Agend. Hoje</div>
+                    <div>Agendamentos</div>
                 </div>
             </div>
 
@@ -92,10 +88,10 @@
     <div class="item report">
         <div class="calendar-month">
             
-            <div class="month"><input type="month" name="" id="" value="<?=$ano.'-'.$mes;?>"></div>
+            <div class="month"><input type="month" id="calendar" url="<?=$base;?>" value="<?=$calendario['ano'].'-'.$calendario['mes'];?>"></div>
             
         </div>
-        <div class="calendar-day">
+        <div class="calendar-day" onselectstart="return false">
             <table>
                 <thead>
                     <tr>
@@ -109,15 +105,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php for ($l = 0; $l < $linhas; $l++) : ?>
+                    <?php for ($l = 0; $l < $calendario['linhas']; $l++) : ?>
                         <tr>
                             <?php for ($q = 0; $q < 7; $q++) : ?>
                                 <?php
-                                $w = date('d', strtotime(($q + ($l * 7)) . ' days', strtotime($data_inicio)));
-                                $m = date('m', strtotime(($q + ($l * 7)) . ' days', strtotime($data_inicio)));
+                                $dia = date('d', strtotime(($q + ($l * 7)) . ' days', strtotime($calendario['data_inicio'])));
+                                $mes = date('m', strtotime(($q + ($l * 7)) . ' days', strtotime($calendario['data_inicio'])));
                                 ?>
-                                <?php if ($m == $mes) : ?>
-                                    <td><?= $w; ?></td>
+                                <?php if ($mes == $calendario['mes']) : ?>
+                                    <td <?php 
+                                    // Identificando os feriados e marcando
+                                    foreach ($feriados as $value) {
+                                        if ($dia == $value['day']) {
+                                            if ($value['code'] == 1 || $value['code'] == 2 || $value['code'] == 3) {
+                                                echo "style='background-color:lightcoral; border-radius: 100px; color: white;'". "title= '".$value['name']." - ".$value['type']."'";
+                                            }  else if($value['code'] == 4) {
+                                                echo "style='background-color:rgb(245, 245, 153); border-radius: 100px; color: black;'". "title= '".$value['name']." - ".$value['type']."'";
+                                            } else if ($value['code'] == 9) {
+                                                echo "style='background-color:rgb(134, 134, 247); border-radius: 100px; color: black;'". "title= '".$value['name']." - ".$value['type']."'";
+                                            }
+                                        }
+                                    };?>><?= $dia; ?></td>
                                 <?php else : ?>
                                     <td></td>
                                 <?php endif ?>
@@ -136,3 +144,4 @@
 </div>
 
 <script src="<?= $base; ?>/assets/js/graphic.js?<?= filemtime('assets/js/graphic.js'); ?>"></script>
+<script src="<?= $base; ?>/assets/js/ajax.js?<?= filemtime('assets/js/ajax.js'); ?>"></script>

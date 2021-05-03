@@ -10,6 +10,7 @@ $router->get('/pacientes', 'PatientsController@index');
 $router->get('/pacientes/cadastro', 'PatientsController@cadastro');
 $router->post('/pacientes/cadastro', 'PatientsController@cadastroAction');
 $router->get('/pacientes/agendamento/{id}', 'PatientsController@agendamento');
+$router->post('/pacientes/agendamento/{id}', 'PatientsController@agendamentoAction');
 $router->get('/pacientes/procedimentos/consulta', 'PatientsController@consulta');
 $router->get('/pacientes/procedimentos/anamnese', 'PatientsController@anamnese');
 $router->get('/pacientes/procedimentos/exames', 'PatientsController@exames');

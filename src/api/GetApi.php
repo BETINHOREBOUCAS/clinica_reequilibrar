@@ -12,8 +12,11 @@ class GetApi {
 
         $sql = $pdo->query($query);
         if ($sql->rowCount()>0) {
-            return $sql->fetchAll(PDO::FETCH_ASSOC);
+            $sql = $sql->fetchAll(PDO::FETCH_ASSOC);
+        } else {
+            $sql = array(array('hora' => '[{"time":"","available":null}]'));
         }
+        return $sql;
     }
     
 }

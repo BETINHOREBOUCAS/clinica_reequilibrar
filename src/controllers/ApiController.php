@@ -11,11 +11,18 @@ class ApiController extends Controller {
         $idProfessional = filter_var($attr['idprofissional'], FILTER_VALIDATE_INT);
         $date = filter_var($attr['data'], FILTER_SANITIZE_STRING);
 
-        $query = "SELECT hora FROM vagas WHERE data = '$date' AND id_profissional = $idProfessional AND disponivel = 1";
+        $query = "SELECT hora FROM vagas WHERE data = '$date' AND id_profissional = $idProfessional";
         
         $result = GetApi::select($query);
-        PrintHandler::print_r($result);
-        //echo json_encode($array);
+        //PrintHandler::print_r($result, true);
+        if (!empty($result)) {
+            $json = $result[0]['hora'];
+            echo $json;
+        } else {
+            $json = $result[0]['hora'];
+            echo $json; 
+        }
+        
     }
 
 }

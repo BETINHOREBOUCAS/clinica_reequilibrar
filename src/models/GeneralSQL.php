@@ -1,6 +1,7 @@
 <?php
 namespace src\models;
 use \core\Model;
+use PDO;
 
 class GeneralSQL extends Model {
 
@@ -35,5 +36,19 @@ class GeneralSQL extends Model {
         $page = ($page - 1) * 10;
         
         return [$page, 'qtdPage' => $paginas];
+    }
+
+    public static function sqlAll($sql, $control = false) {
+        $pdo = Conection::sqlSelect();
+
+        if ($control) {
+            $sql = $pdo->query($sql);
+            if ($sql->rowCount() > 0) {
+                $sql = $sql->fetch(PDO::FETCH_ASSOC);
+                return $sql;
+            }
+        } else {
+            $sql = $pdo->query($sql);
+        }
     }
 }

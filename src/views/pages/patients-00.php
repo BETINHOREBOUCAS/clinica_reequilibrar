@@ -46,7 +46,7 @@
                     <th>Nome</th>
                     <th>CPF</th>
                     <th>Endereço</th>
-                    <th>Zap</th>
+                    <th>WhatsApp</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -61,7 +61,9 @@
                         <div class="action-icons">
                             <div><a href="<?=$base;?>/pacientes/agendamento/<?=$value['id'];?>"><i class="fas fa-calendar-alt margin-right-10"></i></a></div>
 
-                            <div><a href="<?=$base;?>/pacientes/procedimentos/consulta"><i class="fas fa-folder-plus margin-right-10"></i></a></div>
+                            <!-- Não sendo usado -->
+                            <div style="display: none;"><a href="<?=$base;?>/pacientes/procedimentos/consulta"><i class="fas fa-folder-plus margin-right-10"></i></a></div>
+                            <!-- Fim -->
 
                             <div><a href="<?=$base;?>/pacientes/arquivo"><i class="fas fa-folder-open margin-right-10"></i></a></div>
 

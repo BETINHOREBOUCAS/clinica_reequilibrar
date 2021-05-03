@@ -4,6 +4,7 @@ namespace src\controllers;
 use \core\Controller;
 use DateTime;
 use DateTimeZone;
+use src\handlers\ApiHandler;
 use src\handlers\PrintHandler;
 use src\handlers\ScheduleHandler;
 use src\models\GeneralSQL;
@@ -88,21 +89,32 @@ class PatientsController extends Controller {
         } 
     }
 
-    public function agendamento() {
+    public function agendamento($attr) {
+        $idPatiente = filter_var($attr['id'], FILTER_VALIDATE_INT);
+        if (!empty($_SESSION['notice'])) {
+            $data['notice'] = [
+                'notice' => $_SESSION['notice'],
+                'code' => $_SESSION['code']
+            ];
+
+            $_SESSION['notice'] = '';
+            $_SESSION['code'] = '';
+        }
+
         $date = new DateTime();
         $date->setTimezone(new DateTimeZone('America/Sao_Paulo'));
-        $dateStart = $date->format("Y-m-01");
+        $dateStart = $date->format("Y-m-d");
         $dateEnd = $date->format("Y-m-31");
         
-        $data = [];
+        $data['today'] = $date->format('Y-m');
 
         $data['modality'] = Modality::getModalidadeAll();
         $data['professional'] = Professional::getProfessionalAll();
 
         // Filtros de busca de agendamentos
+        $modality = filter_input(INPUT_GET, 'modality', FILTER_SANITIZE_STRING);
         if (count($_GET) > 1) {
 
-            $modality = filter_input(INPUT_GET, 'modality', FILTER_SANITIZE_STRING);
             $month = filter_input(INPUT_GET, 'month', FILTER_SANITIZE_STRING);
             $professional = filter_input(INPUT_GET, 'professional', FILTER_SANITIZE_STRING);
             
@@ -112,10 +124,6 @@ class PatientsController extends Controller {
                 $query[] = "data BETWEEN '$dateStart' AND '$dateEnd'";
             }
 
-            /*if (!empty($_GET['modality']) && isset($_GET['modality'])) {
-                $query[] = "id_modalidade = $modality";
-            }*/
-
             if (!empty($_GET['professional']) && isset($_GET['professional'])) {
                 $query[] = "id_profissional = $professional";
             }
@@ -124,15 +132,29 @@ class PatientsController extends Controller {
             $query = [false];
         }
 
-        $data['schedule'] = Schedule::getShedule($query);
+        $data['schedule'] = Schedule::getShedule($query, $modality);
+        $data['last'] = Schedule::lastSchedules($idPatiente);
 
         if (!array_key_exists('aviso', $data['schedule'])) {
             $data['schedule'] = ScheduleHandler::groupProfessional($data['schedule'], $data['professional']);
         }
 
-        //PrintHandler::print_r($data['schedule'], true);
-
         $this->render('patients-02-scheduling', $data);
+    }
+
+    public function agendamentoAction($attr) {
+        $arrayJson = json_decode($_POST['date']);
+        $idPatiente = filter_var($attr['id'], FILTER_VALIDATE_INT);
+        $idProfessional = $arrayJson->idProfissional;
+        $data = filter_var($arrayJson->data, FILTER_SANITIZE_STRING);
+        $time = filter_var($_POST['hora'], FILTER_SANITIZE_STRING);
+        
+        ScheduleHandler::saveSchedule($idProfessional, $data, $time, $idPatiente);
+        
+        $_SESSION['notice'] = "Agendamento efetuado com sucesso!";
+        $_SESSION['code'] = 2;
+
+        header("Location: ". $_SERVER['HTTP_REFERER']);        
     }
 
     public function consulta() {

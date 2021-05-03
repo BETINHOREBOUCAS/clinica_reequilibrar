@@ -361,7 +361,7 @@ textarea {
     height: 25px;
 }
 
-.cancelar {
+.btn-agenda {
     background: linear-gradient(to bottom, #4165c9 5%, #2831a7 100%) !important;
     color: white !important;
     text-shadow: 0px 1px 0px black !important;

@@ -177,7 +177,7 @@
 
 .report {
     width: 50%;
-    height: 320px;
+    height: 360px;
 }
 
 .calendar-month {
@@ -206,6 +206,7 @@
 .calendar-day {
     margin-bottom: 205px;
     padding: 10px;
+    cursor: default;
 }
 
 .calendar-day table {
@@ -235,7 +236,8 @@
         width: 100%;
     }
     .graphic {
-        display: none;
+        margin-bottom: 80px;
+        margin-left: 0px;
     }
     .info-alert-basic {
         display: flex;
@@ -252,8 +254,5 @@
     }
     .attendance table {
         font-size: 11px;
-    }
-    .month input {
-        font-size: 15px;
     }
 }
