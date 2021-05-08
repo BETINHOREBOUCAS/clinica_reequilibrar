@@ -5,6 +5,7 @@ use \core\Controller;
 use DateTime;
 use DateTimeZone;
 use src\handlers\ApiHandler;
+use src\handlers\LoginHandler;
 use src\handlers\PrintHandler;
 use src\handlers\ScheduleHandler;
 use src\models\GeneralSQL;
@@ -15,9 +16,16 @@ use src\models\Schedule;
 
 class PatientsController extends Controller {
 
-    public function index() {
-        $array = [];
+    private $user;
 
+    public function __construct() {
+        $this->user = LoginHandler::checkLogin();
+        if($this->user === false) {
+            $this->redirect('/login');
+        }
+    }
+
+    public function index() {
         $page = filter_input(INPUT_GET, 'p', FILTER_VALIDATE_INT);
         
         if (!empty($_SESSION['notice'])) {
@@ -51,13 +59,14 @@ class PatientsController extends Controller {
         }
 
         $array['search'] = $search;
+        $array['user'] = $this->user;
 
         $this->render('patients-00', $array);
     }
 
     public function cadastro() {
-        
-        $this->render('patients-01-register');
+        $array = ['user' => $this->user];
+        $this->render('patients-01-register', $array);
     }
 
     public function cadastroAction() {
@@ -90,6 +99,8 @@ class PatientsController extends Controller {
     }
 
     public function agendamento($attr) {
+        $data = ['user' => $this->user];
+
         $idPatiente = filter_var($attr['id'], FILTER_VALIDATE_INT);
         if (!empty($_SESSION['notice'])) {
             $data['notice'] = [
@@ -158,38 +169,38 @@ class PatientsController extends Controller {
     }
 
     public function consulta() {
-        $this->render('patients-03-query');
+        $this->render('patients-03-query', ['user' => $this->user]);
     }
 
     public function anamnese() {
-        $this->render('patients-04-anamnese');
+        $this->render('patients-04-anamnese', ['user' => $this->user]);
     }
 
     public function exames() {
-        $this->render('patients-05-exams');
+        $this->render('patients-05-exams', ['user' => $this->user]);
     }
 
     public function diagnostico() {
-        $this->render('patients-06-diagnosis');
+        $this->render('patients-06-diagnosis', ['user' => $this->user]);
     }
 
     public function evolucao() {
-        $this->render('patients-07-evolution');
+        $this->render('patients-07-evolution', ['user' => $this->user]);
     }
 
     public function arquivo() {
-        $this->render('patients-08-folder');
+        $this->render('patients-08-folder', ['user' => $this->user]);
     }
 
     public function prontuario() {
-        $this->render('patients-09-medical');
+        $this->render('patients-09-medical', ['user' => $this->user]);
     }
 
     public function informacoes() {
-        $this->render('patients-10-information');
+        $this->render('patients-10-information', ['user' => $this->user]);
     }
 
     public function informacoesEditar() {
-        $this->render('patients-11-information-edit');
+        $this->render('patients-11-information-edit', ['user' => $this->user]);
     }
 }

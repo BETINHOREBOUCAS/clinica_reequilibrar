@@ -50,5 +50,23 @@ class GeneralSQL extends Model {
         } else {
             $sql = $pdo->query($sql);
         }
+
+        return array();
+    }
+
+    public static function selectAll($sql, $control = false) {
+        $pdo = Conection::sqlSelect();
+
+        if ($control) {
+            $sql = $pdo->query($sql);
+            if ($sql->rowCount() > 0) {
+                $sql = $sql->fetchAll(PDO::FETCH_ASSOC);
+                return $sql;
+            }
+        } else {
+            $sql = $pdo->query($sql);
+        }
+
+        return array();
     }
 }

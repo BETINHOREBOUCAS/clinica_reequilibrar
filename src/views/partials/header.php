@@ -26,9 +26,9 @@
             <div class="user">
                 <ul>
                     <li>
-                        Bruno Celedonio <span><i class="fas fa-caret-down"></i></span>
+                        <?=$user->nome;?> <span><i class="fas fa-caret-down"></i></span>
                         <div class="option">
-                            <a href=""><i class="fas fa-sign-out-alt"></i> Sair</a>
+                            <a href="<?=$base;?>/sair"><i class="fas fa-sign-out-alt"></i> Sair</a>
                         </div>
                     </li>
 

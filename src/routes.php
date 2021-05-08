@@ -3,6 +3,10 @@ use core\Router;
 
 $router = new Router();
 
+$router->get('/login', 'LoginController@login');
+$router->post('/login', 'LoginController@loginAction');
+$router->get('/sair', 'LoginController@logout');
+
 $router->get('/', 'HomeController@index');
 
 // Pacientes
@@ -27,6 +31,7 @@ $router->get('/consultas', 'QueryController@index');
 // Agenda
 $router->get('/agenda', 'ScheduleController@index');
 $router->get('/agenda/horarios', 'ScheduleController@horarios');
+$router->get('/agendamentos', 'ScheduleController@agendamento');
 
 // Financeiro
 $router->get('/financeiro/fluxo-de-caixa', 'FinancesController@movimentacao');

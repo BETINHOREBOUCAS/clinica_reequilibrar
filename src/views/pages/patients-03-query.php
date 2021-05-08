@@ -1,4 +1,4 @@
-<?php $render('header'); ?>
+<?php $render('header', ['user' => $user]); ?>
 <?php $render('sidebar'); ?>
 
 <div class="container-area">

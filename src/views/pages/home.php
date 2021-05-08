@@ -2,10 +2,10 @@
 
 use src\handlers\PrintHandler;
 
-//PrintHandler::print_r($feriados, true);
+//PrintHandler::print_r($countSchedule, true);
 ?>
 
-<?php $render('header'); ?>
+<?php $render('header', ['user' => $user]); ?>
 <?php $render('sidebar'); ?>
 
 <div class="information">
@@ -21,18 +21,19 @@ use src\handlers\PrintHandler;
                 </div>
             </div>
         </div>
+        <a href="<?=$base;?>/agendamentos?dataAtual=<?=$dataAtual;?>">
         <div class="item">
             <div class="alert-agends">
                 <div class="icons">
-                    <div class="not">1</div>
+                    <div class="not"><?=$countSchedule['totShedule'];?></div>
                     <div class="icon icon-style"><i class="far fa-calendar"></i></div>
                 </div>
                 <div class="text">
                     <div>Agendamentos</div>
                 </div>
             </div>
-
         </div>
+        </a>
     </div>
 
     <div class="info-accounts">
