@@ -13,23 +13,23 @@ use src\handlers\PrintHandler;
             <div class="form-general">
                 <div class="form-responsive">
 
-                    <?php if($user->permissao == 1) :?>
+                    <?php if ($user->permissao == 1) : ?>
                         <div class="item-responsive">
-                        <select name="profissional">
-                            <option value="0" <?=isset($_GET['profissional']) && empty($_GET['profissional'])?"selected=selected":'';?>>Profissional</option>
-                            <?php foreach ($professional as $value) : ?>
-                                <option value="<?= $value['id']; ?>" <?= isset($_GET['profissional']) && $value['id'] == $_GET['profissional']? 'selected=selected' : ''; ?>><?= $value['nome']; ?></option>
-                            <?php endforeach ?>
-                        </select>
-                    </div>
+                            <select name="profissional">
+                                <option value="0" <?= isset($_GET['profissional']) && empty($_GET['profissional']) ? "selected=selected" : ''; ?>>Profissional</option>
+                                <?php foreach ($professional as $value) : ?>
+                                    <option value="<?= $value['id']; ?>" <?= isset($_GET['profissional']) && $value['id'] == $_GET['profissional'] ? 'selected=selected' : ''; ?>><?= $value['nome']; ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
                     <?php endif ?>
 
                     <div class="item-responsive">
-                        <input type="date" name="dataI" required value="<?=$_GET['dataI']??''?>">
+                        <input type="date" name="dataI" required value="<?= $_GET['dataI'] ?? '' ?>">
                     </div>
                     <span class="span-concat">à</span>
                     <div class="item-responsive">
-                        <input type="date" name="dataF" required value="<?=$_GET['dataF']??''?>">
+                        <input type="date" name="dataF" required value="<?= $_GET['dataF'] ?? '' ?>">
                     </div>
 
                     <div class="button">
@@ -60,7 +60,9 @@ use src\handlers\PrintHandler;
                             <td><?= $value['profissional']; ?></td>
                             <td><?= date('d/m/Y', strtotime($value['data'])) . ' às ' . $value['hora']; ?></td>
                             <td class="action-icons">
-                                <div title="Iniciar Consulta" class="margin-right-10"><i class="fas fa-stethoscope"></i></div>
+                                <a href="<?= $base; ?>/procedimentos/consulta/<?=$value['id_agendamento'];?>">
+                                    <div title="Iniciar Consulta" class="margin-right-10"><i class="fas fa-stethoscope"></i></div>
+                                </a>
                                 <div title="Cancelar consulta"><i class="fas fa-window-close"></i></div>
                             </td>
                         </tr>
@@ -72,7 +74,7 @@ use src\handlers\PrintHandler;
                     <h3>Nenhum agendamento encontrado!</h3>
                 </div>
             <?php endif ?>
-            
+
         </table>
     </div>
 </div>

@@ -40,21 +40,21 @@ class ScheduleController extends Controller {
         $professional = filter_input(INPUT_GET, 'profissional', FILTER_VALIDATE_INT)??999999999999;
 
         if (!empty($dataAtual)) {
-            $query = "SELECT profissional.nome AS profissional, pacientes.nome AS paciente, agendamentos.data, agendamentos.hora FROM agendamentos INNER JOIN profissional ON agendamentos.id_profissional = profissional.id INNER JOIN pacientes ON agendamentos.id_paciente = pacientes.id WHERE id_profissional = $idLogged AND data = '$dataAtual' ORDER BY data asc";
+            $query = "SELECT agendamentos.id AS id_agendamento, profissional.nome AS profissional, pacientes.nome AS paciente, agendamentos.data, agendamentos.hora FROM agendamentos INNER JOIN profissional ON agendamentos.id_profissional = profissional.id INNER JOIN pacientes ON agendamentos.id_paciente = pacientes.id WHERE id_profissional = $idLogged AND data = '$dataAtual' ORDER BY data asc";
             $array['agendamentos'] = GeneralSQL::selectAll($query, true);
         } else if ($professional != 0 && !empty($searchDataI) && !empty($searchDataF)){
             if ($professional == 999999999999) {
-                $query = "SELECT profissional.nome AS profissional, pacientes.nome AS paciente, agendamentos.data, agendamentos.hora FROM agendamentos INNER JOIN profissional ON agendamentos.id_profissional = profissional.id INNER JOIN pacientes ON agendamentos.id_paciente = pacientes.id WHERE id_profissional = $idLogged AND data BETWEEN '$searchDataI' AND '$searchDataF' ORDER BY data asc";
+                $query = "SELECT agendamentos.id AS id_agendamento, profissional.nome AS profissional, pacientes.nome AS paciente, agendamentos.data, agendamentos.hora FROM agendamentos INNER JOIN profissional ON agendamentos.id_profissional = profissional.id INNER JOIN pacientes ON agendamentos.id_paciente = pacientes.id WHERE id_profissional = $idLogged AND data BETWEEN '$searchDataI' AND '$searchDataF' ORDER BY data asc";
                 $array['agendamentos'] = GeneralSQL::selectAll($query, true);
             } else if ($this->user->permissao == 1) {
-                $query = "SELECT profissional.nome AS profissional, pacientes.nome AS paciente, agendamentos.data, agendamentos.hora FROM agendamentos INNER JOIN profissional ON agendamentos.id_profissional = profissional.id INNER JOIN pacientes ON agendamentos.id_paciente = pacientes.id WHERE id_profissional = '$professional' AND data BETWEEN '$searchDataI' AND '$searchDataF' ORDER BY data asc";
+                $query = "SELECT agendamentos.id AS id_agendamento, profissional.nome AS profissional, pacientes.nome AS paciente, agendamentos.data, agendamentos.hora FROM agendamentos INNER JOIN profissional ON agendamentos.id_profissional = profissional.id INNER JOIN pacientes ON agendamentos.id_paciente = pacientes.id WHERE id_profissional = '$professional' AND data BETWEEN '$searchDataI' AND '$searchDataF' ORDER BY data asc";
                 $array['agendamentos'] = GeneralSQL::selectAll($query, true);
             } else {
                 $this->redirect('/');
             }
         } else if ($professional == 0 && !empty($searchDataI) && !empty($searchDataF)){
             if ($this->user->permissao == 1) {
-                $query = "SELECT profissional.nome AS profissional, pacientes.nome AS paciente, agendamentos.data, agendamentos.hora FROM agendamentos INNER JOIN profissional ON agendamentos.id_profissional = profissional.id INNER JOIN pacientes ON agendamentos.id_paciente = pacientes.id WHERE id_profissional != 0 AND data BETWEEN '$searchDataI' AND '$searchDataF' ORDER BY data asc";
+                $query = "SELECT agendamentos.id AS id_agendamento, profissional.nome AS profissional, pacientes.nome AS paciente, agendamentos.data, agendamentos.hora FROM agendamentos INNER JOIN profissional ON agendamentos.id_profissional = profissional.id INNER JOIN pacientes ON agendamentos.id_paciente = pacientes.id WHERE id_profissional != 0 AND data BETWEEN '$searchDataI' AND '$searchDataF' ORDER BY data asc";
                 $array['agendamentos'] = GeneralSQL::selectAll($query, true);
             } else {
                 $this->redirect('/');

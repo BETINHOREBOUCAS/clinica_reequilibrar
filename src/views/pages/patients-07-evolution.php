@@ -3,9 +3,9 @@
 
 <div class="container-area">
 
-    <?= $render('information-patient'); ?>
+    <?= $render('information-patient', $patient); ?>
 
-    <?= $render('service-patient'); ?>
+    <?= $render('service-patient', $idAgendamento); ?>
 
     <div class="register-patient">
         <div class="form-register">
@@ -13,7 +13,7 @@
                 <div class="on-input">
                     <div class="margin-botton-10">Data da evolução</div>
                     <div class="input-date">
-                        <input type="date" name="data-evolucao">
+                        <input type="date" name="data-evolucao" value="<?= $dataAtual??"" ?>">
                     </div>
                 </div>
                 <div class="on-input">

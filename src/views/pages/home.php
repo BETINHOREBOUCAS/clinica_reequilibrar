@@ -145,4 +145,4 @@ use src\handlers\PrintHandler;
 </div>
 
 <script src="<?= $base; ?>/assets/js/graphic.js?<?= filemtime('assets/js/graphic.js'); ?>"></script>
-<script src="<?= $base; ?>/assets/js/ajax.js?<?= filemtime('assets/js/ajax.js'); ?>"></script>
+<script src="<?= $base; ?>/assets/js/ajax-home.js?<?= filemtime('assets/js/ajax-home.js'); ?>"></script>

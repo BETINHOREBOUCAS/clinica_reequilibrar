@@ -3,9 +3,9 @@
 
 <div class="container-area">
 
-    <?= $render('information-patient'); ?>
+    <?= $render('information-patient', $patient); ?>
 
-    <?= $render('service-patient'); ?>
+    <?= $render('service-patient', $idAgendamento); ?>
 
     <div class="register">
         <div class="form-register">
@@ -13,16 +13,19 @@
                 <div class="on-input">
                     <div class="margin-botton-10">Data da consulta</div>
                     <div class="input-date">
-                        <input type="date" name="data-consulta">
+                        <input type="date" name="data-consulta" value="<?= $dataAtual??"" ?>">
                     </div>
                 </div>
                 <div class="padding-responsive on-input">
                     <div class="margin-botton-10">Modalidade</div>                    
                         <select name="" id="">
                             <option value=""></option>
-                            <option value="">Ventosa</option>
+                            <?php foreach ($modality as $value) :?>
+                                <option value=""><?=ucfirst($value['nome']);?></option>
+                            <?php endforeach ?>
                         </select>                    
                 </div>
+                <!--
                 <div class="input-flex">                    
                     <div class="margin-right-10">
                         <label>
@@ -52,6 +55,7 @@
                         </label>
                     </div>
                 </div>
+                -->
                 <div class="on-input">
                     <div class="margin-botton-10">Título</div>
                     <div>

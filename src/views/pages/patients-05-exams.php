@@ -3,9 +3,9 @@
 
 <div class="container-area">
 
-    <?= $render('information-patient'); ?>
+    <?= $render('information-patient', $patient); ?>
 
-    <?= $render('service-patient'); ?>
+    <?= $render('service-patient', $idAgendamento); ?>
 
     <div class="register-patient">
         <div class="form-register">

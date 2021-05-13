@@ -168,26 +168,6 @@ class PatientsController extends Controller {
         header("Location: ". $_SERVER['HTTP_REFERER']);        
     }
 
-    public function consulta() {
-        $this->render('patients-03-query', ['user' => $this->user]);
-    }
-
-    public function anamnese() {
-        $this->render('patients-04-anamnese', ['user' => $this->user]);
-    }
-
-    public function exames() {
-        $this->render('patients-05-exams', ['user' => $this->user]);
-    }
-
-    public function diagnostico() {
-        $this->render('patients-06-diagnosis', ['user' => $this->user]);
-    }
-
-    public function evolucao() {
-        $this->render('patients-07-evolution', ['user' => $this->user]);
-    }
-
     public function arquivo() {
         $this->render('patients-08-folder', ['user' => $this->user]);
     }

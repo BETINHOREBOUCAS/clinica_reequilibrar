@@ -4,6 +4,6 @@
     </div>
     <div class="title-info">
         <h2>Informações do Paciente</h2>
-        <h4>Betinho Rebouças</h4>
+        <h4><?=$nome_paciente;?></h4>
     </div>
 </div>
