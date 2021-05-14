@@ -58,17 +58,17 @@
                     <td><?=$value['whatsapp'];?></td>
                     <td class="td-width">
                         <div class="action-icons">
-                            <div><a href="<?=$base;?>/pacientes/agendamento/<?=$value['id'];?>"><i class="fas fa-calendar-alt margin-right-10"></i></a></div>
+                            <div><a href="<?=$base;?>/pacientes/agendamento/<?=$value['id'];?>"><i class="fas fa-calendar-alt margin-right-10 add"></i></a></div>
 
                             <!-- Não sendo usado -->
-                            <div style="display: none;"><a href="<?=$base;?>/pacientes/procedimentos/consulta"><i class="fas fa-folder-plus margin-right-10"></i></a></div>
+                            <div style="display: none;"><a href="<?=$base;?>/pacientes/procedimentos/consulta"><i class="fas fa-folder-plus margin-right-10 add"></i></a></div>
                             <!-- Fim -->
 
-                            <div><a href="<?=$base;?>/pacientes/arquivo"><i class="fas fa-folder-open margin-right-10"></i></a></div>
+                            <div><a href="<?=$base;?>/pacientes/arquivo"><i class="fas fa-folder-open margin-right-10 folder"></i></a></div>
 
-                            <div><a href=""><i class="fas fa-user-edit margin-right-10"></i></a></div>
+                            <div><a href=""><i class="fas fa-user-edit margin-right-10 edit"></i></a></div>
 
-                            <div><a href=""><i class="fas fa-minus-circle margin-right-10"></i></a></div>
+                            <div><a href=""><i class="fas fa-minus-circle margin-right-10 cancel"></i></a></div>
 
                         </div>
                     </td>

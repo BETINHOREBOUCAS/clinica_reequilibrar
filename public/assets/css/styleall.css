@@ -26,6 +26,34 @@
     margin-bottom: 10px;
 }
 
+.stethoscope {
+    color: rgb(53, 163, 231);
+}
+
+.sucess {
+    color: #08C508;
+}
+
+.edit {
+    color: #F2820D;
+}
+
+.cancel {
+    color: rgb(238, 115, 115);
+}
+
+.folder {
+    color: #eec23f;
+}
+
+.add {
+    color: lightseagreen;
+}
+
+.evolution {
+    color: #9562A5;
+}
+
 
 /* ## FIM ## */
 
@@ -287,6 +315,7 @@ textarea {
     }
 }
 
+
 /* ## MODAL ## */
 
 .principal {
@@ -335,7 +364,8 @@ textarea {
     padding-right: 25px;
 }
 
-.form-modal input, .form-modal select {
+.form-modal input,
+.form-modal select {
     width: 85% !important;
     border-radius: 5px;
     border: 1px solid #cecdcd;
@@ -376,9 +406,11 @@ textarea {
     border: 1px solid #cecdcd;
 }
 
-select[name=sexo], select[name=permissao] {
+select[name=sexo],
+select[name=permissao] {
     width: 100% !important;
 }
+
 
 /* ## FIM ## */
 
@@ -565,7 +597,9 @@ select[name=sexo], select[name=permissao] {
 }
 
 .on-input input[type='text'],
-.input-flex input[type='text'], input[type='email'], input[type='password'] {
+.input-flex input[type='text'],
+input[type='email'],
+input[type='password'] {
     width: 100%;
     border-radius: 5px;
     height: 30px;
@@ -623,6 +657,7 @@ select[name=sexo], select[name=permissao] {
     margin-right: 16px;
 }
 
+
 /* ## Aviso de Transição ## */
 
 .div-warning {
@@ -638,7 +673,6 @@ select[name=sexo], select[name=permissao] {
     height: 50px;
     border: 2px solid;
     border-radius: 5px;
-    
 }
 
 .div-warning-icon {
@@ -680,6 +714,7 @@ select[name=sexo], select[name=permissao] {
     background-color: steelblue;
     color: white;
 }
+
 
 /* ## FIM ## */
 
@@ -787,33 +822,28 @@ select[name=sexo], select[name=permissao] {
         display: block;
         text-align: center;
     }
-    
     .modal-container {
         width: 80%;
         height: 70%;
     }
-
-    .form-modal input, .form-modal select {
+    .form-modal input,
+    .form-modal select {
         width: 140px !important;
     }
-
     #modalidade {
         width: 100% !important;
     }
-
     .div-warning {
         width: 100%;
         padding-left: 10px;
         padding-right: 10px;
     }
-
     .div-warning-text {
         padding-left: 5px;
         padding-top: 5px;
         padding-right: 5px;
         width: calc(100% - 40px);
     }
-
     .div-warning-icon {
         width: 40px;
     }
