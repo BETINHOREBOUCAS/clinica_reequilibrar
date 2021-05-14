@@ -61,9 +61,9 @@ use src\handlers\PrintHandler;
                             <td><?= date('d/m/Y', strtotime($value['data'])) . ' às ' . $value['hora']; ?></td>
                             <td class="action-icons">
                                 <a href="<?= $base; ?>/procedimentos/consulta/<?=$value['id_agendamento'];?>">
-                                    <div title="Iniciar Consulta" class="margin-right-10"><i class="fas fa-stethoscope"></i></div>
+                                    <div title="Iniciar Consulta" class="margin-right-10 stethoscope"><i class="fas fa-stethoscope"></i></div>
                                 </a>
-                                <div title="Cancelar consulta"><i class="fas fa-window-close"></i></div>
+                                <div title="Cancelar consulta" class="cancel"><i class="fas fa-window-close"></i></div>
                             </td>
                         </tr>
 

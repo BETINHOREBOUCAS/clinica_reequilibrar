@@ -103,6 +103,73 @@
                     Recado <br> <input type="text" name="message">
                 </label>
             </div>
+
+            <hr class="new-content">
+
+            <div class="on-input">
+                <div class="margin-botton-10">Alergias?</div>
+                <div>
+                    <input type="radio" name="alergia" value="1"> Sim
+                    <input type="radio" name="alergia" value="0"> Não
+                </div>
+            </div>
+            <hr>
+            <div class="on-input">
+                <div class="margin-botton-10">Diabetes?</div>
+                <div>
+                    <input type="radio" name="diabetes" value="1"> Sim
+                    <input type="radio" name="diabetes" value="0"> Não
+                </div>
+            </div>
+            <hr>
+            <div class="on-input">
+                <div class="margin-botton-10">Hipertensão?</div>
+                <div>
+                    <input type="radio" name="hipertensao" value="1"> Sim
+                    <input type="radio" name="hipertensao" value="0"> Não
+                </div>
+            </div>
+            <hr>
+            <div class="on-input">
+                <div class="margin-botton-10">Neoplasia?</div>
+                <div>
+                    <input type="radio" name="neoplasia" value="1"> Sim
+                    <input type="radio" name="neoplasia" value="0"> Não
+                </div>
+            </div>
+            <hr>
+            <div class="on-input">
+                <div class="margin-botton-10">Doença Crônica?</div>
+                <div>
+                    <input type="radio" name="cronica" value="1"> Sim
+                    <input type="radio" name="cronica" value="0"> Não
+                </div>
+            </div>
+            <hr>
+            <div class="on-input">
+                <div class="margin-botton-10">Fumante?</div>
+                <div>
+                    <input type="radio" name="fumante" value="1"> Sim
+                    <input type="radio" name="fumante" value="0"> Não
+                </div>
+            </div>
+            <hr>
+            <div class="on-input">
+                <div class="margin-botton-10">Etilismos?</div>
+                <div>
+                    <input type="radio" name="etilismos" value="1"> Sim
+                    <input type="radio" name="etilismos" value="0"> Não
+                </div>
+            </div>
+            <hr>
+            <div class="on-input">
+                <div class="margin-botton-10">Atividade Física?</div>
+                <div>
+                    <input type="radio" name="atividade" value="1"> Sim
+                    <input type="radio" name="atividade" value="0"> Não
+                </div>
+            </div>
+
             <div class="button-save form-general">
                 <button>Salvar</button>
             </div>

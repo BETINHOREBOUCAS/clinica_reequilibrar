@@ -29,7 +29,7 @@ class QueryController extends Controller {
 
     public function index() {
         
-        $this->render('query-00');
+        $this->render('query-00', ['user' => $this->user]);
     }
 
     public function consulta($attr) {
@@ -47,49 +47,26 @@ class QueryController extends Controller {
         $this->render('patients-03-query', $array);
     }
 
-    public function anamnese($attr) {
-        $idAgendamento = filter_var($attr['id'], FILTER_VALIDATE_INT);
-    
-        $this->idUserSchedule = GeneralSQL::sqlAll("SELECT id_profissional FROM agendamentos WHERE id = $idAgendamento", true);
+    public function consultaAction() {
 
-        // verifica se o agendamento pertence o profissional
-        if ($this->idUserSchedule['id_profissional'] != $this->user->id) {
-            $this->redirect('/agendamentos?dataAtual='.$this->dataAtual);
-        }     
+        $data_consulta = [
+            "data_consulta" => filter_input(INPUT_POST, 'data_consulta', FILTER_SANITIZE_STRING),
+            "id_modalidade" => filter_input(INPUT_POST, 'id_modalidade', FILTER_VALIDATE_INT),
+            "titulo" => filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_STRING),
+            "descricao" => filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_STRING),
+            "diafnostico" => filter_input(INPUT_POST, 'diafnostico', FILTER_SANITIZE_STRING),
+            "retorno" => filter_input(INPUT_POST, 'retorno', FILTER_VALIDATE_INT)
+        ];
 
-        $array = QueryHandler::getInformation($idAgendamento, $this->dataAtual, $this->user);
-
-        $this->render('patients-04-anamnese', $array);
-    }
-
-    public function exames($attr) {
-        $idAgendamento = filter_var($attr['id'], FILTER_VALIDATE_INT);
-    
-        $this->idUserSchedule = GeneralSQL::sqlAll("SELECT id_profissional FROM agendamentos WHERE id = $idAgendamento", true);
-
-        // verifica se o agendamento pertence o profissional
-        if ($this->idUserSchedule['id_profissional'] != $this->user->id) {
-            $this->redirect('/agendamentos?dataAtual='.$this->dataAtual);
-        }     
-
-        $array = QueryHandler::getInformation($idAgendamento, $this->dataAtual, $this->user);
-
-        $this->render('patients-05-exams', $array);
-    }
-
-    public function diagnostico($attr) {
-        $idAgendamento = filter_var($attr['id'], FILTER_VALIDATE_INT);
-    
-        $this->idUserSchedule = GeneralSQL::sqlAll("SELECT id_profissional FROM agendamentos WHERE id = $idAgendamento", true);
-
-        // verifica se o agendamento pertence o profissional
-        if ($this->idUserSchedule['id_profissional'] != $this->user->id) {
-            $this->redirect('/agendamentos?dataAtual='.$this->dataAtual);
-        }     
-
-        $array = QueryHandler::getInformation($idAgendamento, $this->dataAtual, $this->user);
-
-        $this->render('patients-06-diagnosis', $array);
+        $data_exame = [
+            "data_exame" => filter_input(INPUT_POST, 'data_exame', FILTER_SANITIZE_STRING),
+            "nome_exame" => filter_input(INPUT_POST, 'nome_exame', FILTER_SANITIZE_STRING),
+            "url_exame" => filter_input(INPUT_POST, 'url_exame', FILTER_SANITIZE_STRING),
+            "id_consulta" => filter_input(INPUT_POST, 'id_consulta', FILTER_VALIDATE_INT)
+        ];
+        
+        print_r($_FILES);
+        PrintHandler::print_r($_POST, true);
     }
 
     public function evolucao($attr) {

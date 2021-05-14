@@ -73,6 +73,17 @@ class PatientsController extends Controller {
 
         if (!empty($_POST['name'])) {
 
+            $anamnese = json_encode([
+                "alergia" => filter_input(INPUT_POST, 'alergia', FILTER_SANITIZE_STRING),
+                "diabetes" => filter_input(INPUT_POST, 'diabetes', FILTER_SANITIZE_STRING),
+                "hipertensao" => filter_input(INPUT_POST, 'hipertensao', FILTER_SANITIZE_STRING),
+                "neoplasia" => filter_input(INPUT_POST, 'neoplasia', FILTER_SANITIZE_STRING),
+                "cronica" => filter_input(INPUT_POST, 'cronica', FILTER_SANITIZE_STRING),
+                "fumante" => filter_input(INPUT_POST, 'fumante', FILTER_SANITIZE_STRING),
+                "etilismos" => filter_input(INPUT_POST, 'etilismos', FILTER_SANITIZE_STRING),
+                "atividade" => filter_input(INPUT_POST, 'atividade', FILTER_SANITIZE_STRING)
+            ]);
+
             $data = [
                 "nome" => filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING),
                 "email" => filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL),
@@ -86,7 +97,12 @@ class PatientsController extends Controller {
                 "numero" => filter_input(INPUT_POST, 'number', FILTER_SANITIZE_STRING),
                 "celular" => filter_input(INPUT_POST, 'cell', FILTER_SANITIZE_STRING),
                 "whatsapp" => filter_input(INPUT_POST, 'whatsapp', FILTER_SANITIZE_STRING),
-                "recado" => filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING)
+                "recado" => filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING),
+                "anamnese" => $anamnese 
+            ];
+
+            $anamnese = [
+
             ];
 
             GeneralSQL::insertInto('pacientes', $data);

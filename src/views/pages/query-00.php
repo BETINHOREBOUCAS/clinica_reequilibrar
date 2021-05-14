@@ -28,7 +28,7 @@
             </div>
         </form>
 
-        
+
     </div>
     <div class="table-style">
         <table>
@@ -37,7 +37,7 @@
                     <th>Pacinte</th>
                     <th>Profissional</th>
                     <th>Tipo</th>
-                    <th>Valor</th>
+                    <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,37 +45,75 @@
                     <td>Betinho francisco adalberto reboucas filho</td>
                     <td>Raimundo Franbcisco</td>
                     <td>Avaliação</td>
-                    <td>R$ 100,00</td>
+                    <td>
+                        <div class="action-icons">
+                            <div><a href=""><i class="fas fa-notes-medical margin-right-10 evolution" title="Add Evolução"></i></a></div>
+
+                            <div><a href=""><i class="fas fa-clipboard-check sucess" title="Finalizar Acompanhamento"></i></div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Betinho</td>
                     <td>Raimundo Franbcisco</td>
                     <td>Avaliação</td>
-                    <td>R$ 100,00</td>
+                    <td>
+                        <div class="action-icons">
+                            <div><a href=""><i class="fas fa-notes-medical margin-right-10 evolution" title="Add Evolução"></i></a></div>
+
+                            <div><a href=""><i class="fas fa-clipboard-check sucess" title="Finalizar Acompanhamento"></i></div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Betinho</td>
                     <td>Raimundo Franbcisco</td>
                     <td>Avaliação</td>
-                    <td>R$ 100,00</td>
+                    <td>
+                        <div class="action-icons">
+                            <div class="action-icons">
+                            <div><a href=""><i class="fas fa-notes-medical margin-right-10 evolution" title="Add Evolução"></i></a></div>
+
+                            <div><a href=""><i class="fas fa-clipboard-check sucess" title="Finalizar Acompanhamento"></i></div>
+                        </div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Betinho</td>
                     <td>Raimundo Franbcisco</td>
                     <td>Avaliação</td>
-                    <td>R$ 100,00</td>
+                    <td>
+                        <div class="action-icons">
+                            <div><a href=""><i class="fas fa-notes-medical margin-right-10 evolution" title="Add Evolução"></i></a></div>
+
+                            <div><a href=""><i class="fas fa-clipboard-check sucess" title="Finalizar Acompanhamento"></i></div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Betinho</td>
                     <td>Raimundo Franbcisco</td>
                     <td>Avaliação</td>
-                    <td>R$ 100,00</td>
+                    <td>
+                        <div class="action-icons">
+                            <div><a href=""><i class="fas fa-notes-medical margin-right-10 evolution" title="Add Evolução"></i></a></div>
+
+                            <div><a href=""><i class="fas fa-clipboard-check sucess" title="Finalizar Acompanhamento"></i></div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Betinho</td>
                     <td>Raimundo Franbcisco</td>
                     <td>Avaliação</td>
-                    <td>R$ 100,00</td>
+                    <td>
+                        <div class="action-icons">
+                            <div><a href=""><i class="fas fa-notes-medical margin-right-10 evolution" title="Add Evolução"></i></a></div>
+
+                            <div><a href=""><i class="fas fa-clipboard-check sucess" title="Finalizar Acompanhamento"></i></div>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>

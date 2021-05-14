@@ -33,6 +33,10 @@
     margin-left: 15px;
 }
 
+.new-content {
+    border-color: lightcoral;
+}
+
 @media only screen and (max-width: 1024px) {
     .vacancy {
         display: none;
