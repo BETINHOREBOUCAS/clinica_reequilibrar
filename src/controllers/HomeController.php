@@ -38,7 +38,7 @@ class HomeController extends Controller {
             $month = filter_var($_GET['month'], FILTER_SANITIZE_STRING);
         } 
 
-        $query = "SELECT COUNT(*) AS totShedule FROM agendamentos WHERE id_profissional = $idLogged AND data = '$dataAtual'";
+        $query = "SELECT COUNT(*) AS totShedule FROM agendamentos WHERE id_profissional = $idLogged AND data = '$dataAtual' AND ativo = 1";
         $array['countSchedule'] = GeneralSQL::sqlAll($query, true);
 
         $calendar = new HomeHandler();

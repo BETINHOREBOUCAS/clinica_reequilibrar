@@ -41,6 +41,11 @@ use src\handlers\PrintHandler;
 
 
     </div>
+    <?php
+        if (!empty($notice)) {
+            $render('warning', $notice);
+        }
+    ?>
     <div class="table-style">
         <table>
             <?php if (!empty($agendamentos)) : ?>
@@ -60,10 +65,10 @@ use src\handlers\PrintHandler;
                             <td><?= $value['profissional']; ?></td>
                             <td><?= date('d/m/Y', strtotime($value['data'])) . ' às ' . $value['hora']; ?></td>
                             <td class="action-icons">
-                                <a href="<?= $base; ?>/procedimentos/consulta/<?=$value['id_agendamento'];?>">
+                                <a href="<?= $base; ?>/procedimentos/consulta/<?=$value['id_agendamento'].'/'.$value['id_paciente'];?>">
                                     <div title="Iniciar Consulta" class="margin-right-10 stethoscope"><i class="fas fa-stethoscope"></i></div>
                                 </a>
-                                <div title="Cancelar consulta" class="cancel"><i class="fas fa-window-close"></i></div>
+                                <a href="<?=$base;?>/procedimentos/consulta/<?=$value['id_agendamento'];?>" class="cancel"><div title="Cancelar consulta" ><i class="fas fa-window-close"></i></div></a>
                             </td>
                         </tr>
 
@@ -78,3 +83,5 @@ use src\handlers\PrintHandler;
         </table>
     </div>
 </div>
+
+<script src="<?=$base;?>/assets/js/ajax-schedule.js"></script>

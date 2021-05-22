@@ -58,7 +58,7 @@ class Schedule extends Model
     public static function lastSchedules($idPatiente) {
         $pdo = Conection::sqlSelect();
 
-        $sql = "SELECT data, nome, comparecimento, motivo FROM agendamentos INNER JOIN profissional ON agendamentos.id_profissional = profissional.id WHERE id_paciente = $idPatiente ORDER BY data LIMIT 10";
+        $sql = "SELECT data, nome, motivo FROM agendamentos INNER JOIN profissional ON agendamentos.id_profissional = profissional.id WHERE id_paciente = $idPatiente ORDER BY data LIMIT 10";
         $sql = $pdo->query($sql);
         if ($sql->rowCount()>0) {
             $sql = $sql->fetchAll(PDO::FETCH_ASSOC);

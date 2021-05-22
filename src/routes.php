@@ -23,8 +23,9 @@ $router->get('/pacientes/arquivo/informacoes/editar', 'PatientsController@inform
 // Consultas
 $router->get('/consultas', 'QueryController@index');
 $router->get('/consultas/cancelar/{id}', 'QueryController@cancelar');
-$router->get('/procedimentos/consulta/{id}', 'QueryController@consulta');
-$router->post('/procedimentos/consulta/{id}', 'QueryController@consultaAction');
+$router->get('/procedimentos/consulta/{idagendamento}/{idpaciente}', 'QueryController@consulta');
+$router->post('/procedimentos/consulta/{idagendamento}/{idpaciente}', 'QueryController@consultaAction');
+$router->post('/procedimentos/consulta/{idagendamento}', 'QueryController@cancelarAgendamento');
 $router->get('/procedimentos/evolucao/{id}', 'QueryController@evolucao');
 
 // Agenda

@@ -66,7 +66,7 @@
                 <div class="on-input">
                     <div class="margin-botton-10">Arquivo</div>
                     <div>
-                        <input type="file" name="scan" id="scan">
+                        <input type="file" name="scan" id="scan" accept="application/pdf">
                     </div>
                 </div>
                 
@@ -76,7 +76,7 @@
                     <h3>Será realizado tratamento, sessões ou retorno para este paciente?</h3>
                     <div>
                         <input type="radio" name="retorno" value="1"> Sim
-                        <input type="radio" name="retorno" value="0"> Não
+                        <input type="radio" name="retorno" value="0" checked> Não
                     </div>
                 </div>
 

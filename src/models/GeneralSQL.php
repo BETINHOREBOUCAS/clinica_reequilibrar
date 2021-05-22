@@ -5,7 +5,7 @@ use PDO;
 
 class GeneralSQL extends Model {
 
-    public static function insertInto (string $table, array $data) {
+    public static function insertInto (string $table, array $data, bool $lastId = false) {
         $pdo = Conection::sqlSelect();
 
         foreach ($data as $key => $value) {
@@ -25,7 +25,11 @@ class GeneralSQL extends Model {
 
         $sql->execute();
 
-        return $sql->rowCount();
+        if ($lastId) {
+            return $pdo->lastInsertId();
+        } else {
+            return $sql->rowCount();
+        }    
     }
 
     public static function countPage($page, $count) {
